@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Google Dork Generator | 0x0806</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Google Dork Generator</span>
+                </div>
+                <div class="header-right">
+                    <span class="developed-by">Developed by <strong>0x0806</strong></span>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1 class="hero-title">Advanced Google Dork Generator</h1>
+                <p class="hero-subtitle">Professional-grade OSINT tool for advanced search queries</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Dork Patterns</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Categories</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <div class="action-card" onclick="scrollToSection('generator')">
+                    <i class="fas fa-magic"></i>
+                    <h3>Generate Dorks</h3>
+                    <p>Create custom dorks</p>
+                </div>
+                <div class="action-card" onclick="scrollToSection('presets')">
+                    <i class="fas fa-bookmark"></i>
+                    <h3>Preset Dorks</h3>
+                    <p>Use predefined patterns</p>
+                </div>
+                <div class="action-card" onclick="scrollToSection('history')">
+                    <i class="fas fa-history"></i>
+                    <h3>History</h3>
+                    <p>View recent queries</p>
+                </div>
+                <div class="action-card" onclick="scrollToSection('export')">
+                    <i class="fas fa-download"></i>
+                    <h3>Export</h3>
+                    <p>Save your dorks</p>
+                </div>
+            </section>
+
+            <!-- Dork Generator -->
+            <section class="section" id="generator">
+                <div class="section-header">
+                    <h2><i class="fas fa-cogs"></i> Dork Generator</h2>
+                    <button class="btn btn-secondary" onclick="clearGenerator()">
+                        <i class="fas fa-trash"></i> Clear All
+                    </button>
+                </div>
+                
+                <div class="generator-grid">
+                    <!-- Basic Parameters -->
+                    <div class="generator-card">
+                        <h3><i class="fas fa-search"></i> Basic Search</h3>
+                        <div class="form-group">
+                            <label>Search Term</label>
+                            <input type="text" id="searchTerm" placeholder="Enter search term">
+                        </div>
+                        <div class="form-group">
+                            <label>Exact Phrase</label>
+                            <input type="text" id="exactPhrase" placeholder="Exact phrase in quotes">
+                        </div>
+                        <div class="form-group">
+                            <label>Any of These Words</label>
+                            <input type="text" id="anyWords" placeholder="word1 OR word2 OR word3">
+                        </div>
+                        <div class="form-group">
+                            <label>None of These Words</label>
+                            <input type="text" id="noneWords" placeholder="Exclude these words">
+                        </div>
+                    </div>
+
+                    <!-- Site Parameters -->
+                    <div class="generator-card">
+                        <h3><i class="fas fa-globe"></i> Site Parameters</h3>
+                        <div class="form-group">
+                            <label>Specific Site</label>
+                            <input type="text" id="site" placeholder="example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>File Type</label>
+                            <select id="fileType">
+                                <option value="">Select file type</option>
+                                <option value="pdf">PDF</option>
+                                <option value="doc">DOC</option>
+                                <option value="docx">DOCX</option>
+                                <option value="xls">XLS</option>
+                                <option value="xlsx">XLSX</option>
+                                <option value="ppt">PPT</option>
+                                <option value="pptx">PPTX</option>
+                                <option value="txt">TXT</option>
+                                <option value="csv">CSV</option>
+                                <option value="sql">SQL</option>
+                                <option value="xml">XML</option>
+                                <option value="json">JSON</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>URL Contains</label>
+                            <input type="text" id="inurl" placeholder="Text in URL">
+                        </div>
+                        <div class="form-group">
+                            <label>Title Contains</label>
+                            <input type="text" id="intitle" placeholder="Text in title">
+                        </div>
+                    </div>
+
+                    <!-- Advanced Parameters -->
+                    <div class="generator-card">
+                        <h3><i class="fas fa-cog"></i> Advanced Options</h3>
+                        <div class="form-group">
+                            <label>Text in Page</label>
+                            <input type="text" id="intext" placeholder="Text in page content">
+                        </div>
+                        <div class="form-group">
+                            <label>Anchor Text</label>
+                            <input type="text" id="inanchor" placeholder="Text in links">
+                        </div>
+                        <div class="form-group">
+                            <label>Related Sites</label>
+                            <input type="text" id="related" placeholder="Find related sites">
+                        </div>
+                        <div class="form-group">
+                            <label>Cache</label>
+                            <input type="text" id="cache" placeholder="Cached version of site">
+                        </div>
+                    </div>
+
+                    <!-- Security Focused -->
+                    <div class="generator-card">
+                        <h3><i class="fas fa-shield-alt"></i> Security Focused</h3>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" id="adminPages"> Admin Pages</label>
+                            <label><input type="checkbox" id="loginPages"> Login Pages</label>
+                            <label><input type="checkbox" id="configFiles"> Config Files</label>
+                            <label><input type="checkbox" id="logFiles"> Log Files</label>
+                            <label><input type="checkbox" id="backupFiles"> Backup Files</label>
+                            <label><input type="checkbox" id="databaseFiles"> Database Files</label>
+                            <label><input type="checkbox" id="directoryListings"> Directory Listings</label>
+                            <label><input type="checkbox" id="errorPages"> Error Pages</label>
+                        </div>
+                    </div>
+
+                    <!-- Custom URL Targeting -->
+                    <div class="generator-card">
+                        <h3><i class="fas fa-bullseye"></i> Custom URL Targeting</h3>
+                        <div class="form-group">
+                            <label>Target URL</label>
+                            <input type="url" id="targetUrl" placeholder="https://example.com">
+                            <small class="form-help">Enter a specific URL to generate targeted dorks</small>
+                        </div>
+                        <div class="form-group">
+                            <label>URL Pattern</label>
+                            <select id="urlPattern">
+                                <option value="">Select URL pattern</option>
+                                <option value="exact">Exact URL match</option>
+                                <option value="domain">Domain only</option>
+                                <option value="subdomain">Include subdomains</option>
+                                <option value="path">Specific path</option>
+                            </select>
+                        </div>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" id="urlAnalysis"> Auto-analyze URL structure</label>
+                            <label><input type="checkbox" id="generateVariants"> Generate URL variants</label>
+                        </div>
+                        <div class="url-actions">
+                            <button class="btn btn-primary" onclick="analyzeUrl()">
+                                <i class="fas fa-search"></i> Analyze URL
+                            </button>
+                            <button class="btn btn-secondary" onclick="generateUrlDorks()">
+                                <i class="fas fa-magic"></i> Generate Dorks
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generated Dork Display -->
+                <div class="dork-output">
+                    <div class="output-header">
+                        <h3><i class="fas fa-code"></i> Generated Dork</h3>
+                        <div class="output-actions">
+                            <button class="btn btn-primary" onclick="copyDork()">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                            <button class="btn btn-success" onclick="searchGoogle()">
+                                <i class="fas fa-search"></i> Search Google
+                            </button>
+                            <button class="btn btn-secondary" onclick="saveDork()">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+                        </div>
+                    </div>
+                    <div class="dork-display" id="dorkDisplay">
+                        <code id="generatedDork">Your generated dork will appear here...</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Preset Dorks -->
+            <section class="section" id="presets">
+                <div class="section-header">
+                    <h2><i class="fas fa-bookmark"></i> Preset Dorks</h2>
+                    <div class="preset-filters">
+                        <button class="filter-btn active" onclick="filterPresets('all')">All</button>
+                        <button class="filter-btn" onclick="filterPresets('security')">Security</button>
+                        <button class="filter-btn" onclick="filterPresets('documents')">Documents</button>
+                        <button class="filter-btn" onclick="filterPresets('login')">Login</button>
+                        <button class="filter-btn" onclick="filterPresets('admin')">Admin</button>
+                        <button class="filter-btn" onclick="filterPresets('database')">Database</button>
+                    </div>
+                </div>
+                
+                <div class="presets-grid" id="presetsGrid">
+                    <!-- Preset cards will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- History -->
+            <section class="section" id="history">
+                <div class="section-header">
+                    <h2><i class="fas fa-history"></i> Search History</h2>
+                    <button class="btn btn-danger" onclick="clearHistory()">
+                        <i class="fas fa-trash"></i> Clear History
+                    </button>
+                </div>
+                <div class="history-list" id="historyList">
+                    <!-- History items will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Export Section -->
+            <section class="section" id="export">
+                <div class="section-header">
+                    <h2><i class="fas fa-download"></i> Export & Tools</h2>
+                </div>
+                <div class="export-grid">
+                    <div class="export-card">
+                        <h3><i class="fas fa-file-export"></i> Export Dorks</h3>
+                        <p>Export your saved dorks in various formats</p>
+                        <div class="export-buttons">
+                            <button class="btn btn-primary" onclick="exportDorks('txt')">
+                                <i class="fas fa-file-alt"></i> TXT
+                            </button>
+                            <button class="btn btn-primary" onclick="exportDorks('json')">
+                                <i class="fas fa-file-code"></i> JSON
+                            </button>
+                            <button class="btn btn-primary" onclick="exportDorks('csv')">
+                                <i class="fas fa-file-excel"></i> CSV
+                            </button>
+                        </div>
+                    </div>
+                    <div class="export-card">
+                        <h3><i class="fas fa-upload"></i> Import Dorks</h3>
+                        <p>Import dorks from file</p>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="importFile" accept=".txt,.json,.csv">
+                            <label for="importFile" class="btn btn-secondary">
+                                <i class="fas fa-upload"></i> Choose File
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2024 Advanced Google Dork Generator. Developed by <strong>0x0806</strong></p>
+                </div>
+                <div class="footer-right">
+                    <a href="#" class="footer-link">Documentation</a>
+                    <a href="#" class="footer-link">About</a>
+                    <a href="#" class="footer-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notifications -->
+    <div class="notification-container" id="notifications"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
