@@ -242,5 +242,5 @@ This tool is intended for educational and authorized security testing purposes o
 ---
 
 **Version**: 1.0.0  
-**Last Updated**: 2024  
+**Last Updated**: 2025  
 **Status**: Active Development
