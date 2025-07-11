@@ -84,16 +84,6 @@ python -m http.server 8000
 npx serve .
 ```
 
-### Replit Deployment
-1. Import project to Replit
-2. Files are automatically served
-3. Use the built-in preview for testing
-
-### GitHub Pages
-1. Push to GitHub repository
-2. Enable GitHub Pages in repository settings
-3. Set source to main branch
-4. Access via generated GitHub Pages URL
 
 ## Usage Guide
 
